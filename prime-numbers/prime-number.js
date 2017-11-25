@@ -19,9 +19,25 @@ function primeWilson(n) {
     return true;
 }
 
-primeWilson(2);
-primeWilson(3);
-primeWilson(4);
-primeWilson(5);
-primeWilson(6);
-primeWilson(7);
+// https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+// find all prime numbers up to the provided one
+
+function primeEratosten(n) {
+    let sieve = new Array(n).fill(0);
+    let primes = [];
+    let i = 2;
+    while (i <= n) {
+        if (sieve[i] === 0) {
+            primes.push(i);
+            let j = i * i;
+            while (j <= n) {
+                sieve[j] = 1;
+                j += i;
+            }
+        }
+        i++;
+    }
+    return primes;
+}
+
+
