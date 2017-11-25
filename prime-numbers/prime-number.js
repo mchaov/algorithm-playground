@@ -1,3 +1,5 @@
+const { performance } = require('perf_hooks');
+
 // Implementation using Wilson's theorem
 // https://en.wikipedia.org/wiki/Wilson%27s_theorem
 // slower than other methods when considered for large number
@@ -23,7 +25,7 @@ function primeWilson(n) {
 // find all prime numbers up to the provided one
 
 function primeEratosten(n) {
-    let sieve = new Array(n).fill(0);
+    let sieve = new Float64Array(n).fill(0);
     let primes = [];
     let i = 2;
     while (i <= n) {
@@ -40,4 +42,38 @@ function primeEratosten(n) {
     return primes;
 }
 
+// Find primes in
 
+function findPrimes(n) {
+    let primes = new Float64Array(n);
+    let p = 0;
+
+    function isP(n) {
+        let i = 0;
+        while (i < p && Math.pow(primes[i], 2) <= n) {
+            if (n % primes[i] === 0) return 0;
+            i++;
+        }
+        return 1;
+    }
+
+    let i = 2;
+    while (i < n) {
+        if (isP(i)) {
+            primes[p] = i;
+            p++;
+        }
+        i++;
+    }
+
+    return primes;
+}
+
+const total = 100000000;
+let perf = performance.now();
+primeEratosten(total)
+console.log("primeEratosten:", performance.now() - perf);
+
+perf = performance.now();
+findPrimes(total);
+console.log("findPrimes:", performance.now() - perf);
