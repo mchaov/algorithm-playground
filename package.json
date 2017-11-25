@@ -1,0 +1,23 @@
+{
+  "name": "algorithm-playground",
+  "version": "1.0.0",
+  "description": "Just some popular algorithms implemented in JS by me",
+  "main": "index.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mchaov/algorithm-playground.git"
+  },
+  "keywords": [
+    "JS",
+    "JavaScript",
+    "Algorithms"
+  ],
+  "author": "Martin Chaov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mchaov/algorithm-playground/issues"
+  },
+  "homepage": "https://github.com/mchaov/algorithm-playground#readme"
+}
