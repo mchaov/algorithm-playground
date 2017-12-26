@@ -38,15 +38,19 @@
         <canvas id="lifeGrid" width="1000" height="1000"></canvas>
     </div>
     <script>
+        /** Rules
+         * 
+         * alive and 2 siblings or less => death of loliness
+         * alive and 3 siblings or more => death of over population
+         * alive and exactly 3 siblings => new born
+         * everything else => retain current state
+         * 
+         */
+
         var ctx = document.all.lifeGrid.getContext("2d");
         ctx.lineWidth = 1;
         ctx.strokeStyle = "#cecece";
         ctx.font = "20px Arial";
-        // ctx.fillText("Hello World",10,50);
-        // ctx.fillStyle = "red";
-        // ctx.textAlign = "center";
-        // ctx.fillStyle = "#000FFF";
-        // ctx.fillRect(0, 0, sizes.w, sizes.h);
 
         var interval,
             flag = false,
