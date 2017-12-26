@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Game of life</title>
+
+    <style>
+        div {
+            text-align: center;
+        }
+
+        button {
+            vertical-align: middle;
+        }
+
+        canvas {
+            display: block;
+            margin: 0 auto;
+            width: 90vh;
+            height: 90vh;
+            max-width: 1000px;
+            max-height: 1000px;
+            box-sizing: content-box;
+            border: 2px solid #bebebe;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>
+            <span>Game of life</span>
+            <button id="btn">Toggle</button>
+        </h1>
+        <canvas id="lifeGrid" width="1000" height="1000"></canvas>
+    </div>
+    <script>
+        var ctx = document.all.lifeGrid.getContext("2d");
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = "#cecece";
+        ctx.font = "20px Arial";
+        // ctx.fillText("Hello World",10,50);
+        // ctx.fillStyle = "red";
+        // ctx.textAlign = "center";
+        // ctx.fillStyle = "#000FFF";
+        // ctx.fillRect(0, 0, sizes.w, sizes.h);
+
+        var interval,
+            flag = false,
+            timeout = 50,
+            grid = 10,
+            sizes = {
+                w: 100,
+                h: 100
+            }
+
+        var cell = sizes.w;
+
+        var lifeGrid = new Array(grid).fill(0).map(x => new Array(grid).fill(0));
+
+        document.all.btn.addEventListener("click", e => flag = !flag);
+
+        function clear(ctx) { return ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height); }
+        function rand() { return Math.round(Math.random() * (1 - 0) + 0); }
+
+        function setupGrid() {
+            for (let i = 0; i < lifeGrid.length; i++) {
+                for (let j = 0; j < lifeGrid[i].length; j++) {
+                    lifeGrid[i][j] = rand();
+                }
+            }
+        }
+
+        function drawGrid() {
+            clear(ctx);
+
+            for (let i = 0; i < lifeGrid.length; i++) {
+                for (let j = 0; j < lifeGrid[i].length; j++) {
+                    ctx.strokeRect(cell * i, cell * j, sizes.w, sizes.h);
+                    if (lifeGrid[i][j] > 0) {
+                        ctx.fillStyle = "black";
+                        ctx.fillRect(cell * i, cell * j, sizes.w, sizes.h);
+                    }
+                }
+            }
+        }
+
+        function getState(i, j) {
+            let state = 0 - lifeGrid[i][j];
+            for (let x = -1; x <= 1; x++) {
+                for (let y = -1; y <= 1; y++) {
+                    state += x + i >= 0 && y + j >= 0 && x + i < lifeGrid.length && y + j < lifeGrid[0].length ? lifeGrid[x + i][y + j] : 0;
+                }
+            }
+            return state;
+        }
+
+        function mutate() {
+            let nextLife = lifeGrid.slice();
+            for (let i = 0; i < lifeGrid.length; i++) {
+                for (let j = 0; j < lifeGrid[i].length; j++) {
+                    let val;
+                    let cell = lifeGrid[i][j];
+                    let state = getState(i, j);
+
+                    if (cell === 1 && state < 2) { val = 0; }
+                    else if (cell === 1 && state > 3) { val = 0; }
+                    else if (cell === 0 && state === 3) { val = 1; }
+                    else { val = cell }
+
+                    nextLife[i][j] = val;
+                }
+            }
+            lifeGrid = nextLife;
+            return drawGrid();
+        }
+
+        function playLife() {
+            flag && mutate();
+            start();
+        }
+
+        function start() {
+            interval = setTimeout(() => {
+                playLife();
+            }, timeout);
+        }
+
+        setupGrid();
+        drawGrid();
+
+        start();
+
+    </script>
+</body>
+
+</html>
