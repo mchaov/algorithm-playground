@@ -69,7 +69,7 @@ function findPrimes(n) {
     return primes;
 }
 
-const total = 1294967295;
+const total = 1000000000;
 let perf = performance.now();
 primeEratosten(total)
 console.log("primeEratosten:", performance.now() - perf);
