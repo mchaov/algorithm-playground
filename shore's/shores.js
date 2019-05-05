@@ -6,7 +6,7 @@ const gcd = require("../helpers/greatestCommonDivisor");
  * Shor's algorithm a.k.a. fuck RSA and your crypto bullshit xD
  * 
  * Bruteforce implementation! I don't have a quantum computer laying around ... duh ...
- * - Doesn't check if number is prime, primes input yields primeFactors(PRIME) => [PRIME, PRIME]
+ * - Doesn't check if number is prime, prime N input example: primeFactors(PRIME) => [PRIME, PRIME]
  * 
  */
 
@@ -36,6 +36,7 @@ function primeFactors(N) {
 }
 
 console.log(
+    `\nN = 5,         expected[5, 5];        received[${primeFactors(5).join(", ")}]`,
     `\nN = 15,        expected[5, 3];        received[${primeFactors(15).join(", ")}]`,
     `\nN = 21,        expected[3, 7];        received[${primeFactors(21).join(", ")}]`,
     `\nN = 143,       expected[13, 11];      received[${primeFactors(143).join(", ")}]`,
