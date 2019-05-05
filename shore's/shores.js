@@ -35,12 +35,12 @@ function primeFactors(N) {
     return [p, q];
 }
 
-console.log(
-    `\nN = 5,         expected[5, 5];        received[${primeFactors(5).join(", ")}]`,
-    `\nN = 15,        expected[5, 3];        received[${primeFactors(15).join(", ")}]`,
-    `\nN = 21,        expected[3, 7];        received[${primeFactors(21).join(", ")}]`,
-    `\nN = 143,       expected[13, 11];      received[${primeFactors(143).join(", ")}]`,
-    `\nN = 56153,     expected[233, 241];    received[${primeFactors(56153).join(", ")}]`,
-    `\nN = ‭831211‬,    expected[1217, 683];   received[${primeFactors(831211).join(", ")}]`,
-    `\nN = 88315753,  expected[7691, 11483]; received[${primeFactors(88315753).join(", ")}]`,
-);
+// console.log(
+//     `\nN = 5,         expected[5, 5];        received[${primeFactors(5).join(", ")}]`,
+//     `\nN = 15,        expected[5, 3];        received[${primeFactors(15).join(", ")}]`,
+//     `\nN = 21,        expected[3, 7];        received[${primeFactors(21).join(", ")}]`,
+//     `\nN = 143,       expected[13, 11];      received[${primeFactors(143).join(", ")}]`,
+//     `\nN = 56153,     expected[233, 241];    received[${primeFactors(56153).join(", ")}]`,
+//     `\nN = ‭831211‬,    expected[1217, 683];   received[${primeFactors(831211).join(", ")}]`,
+//     `\nN = 88315753,  expected[7691, 11483]; received[${primeFactors(88315753).join(", ")}]`,
+// );
