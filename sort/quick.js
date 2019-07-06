@@ -4,7 +4,7 @@ const swap = require("../helpers/arraySwap");
 let arr1 = [2, 5, 8, 7, 6, 9, 1, 3, 4, 0, 12, 15, 18, 17, 16, 19, 11, 13, 14, 10, 22, 25, 28, 27, 26, 29, 21, 23, 24, 20];
 
 // https://en.wikipedia.org/wiki/Quicksort#Lomuto_partition_scheme
-function partition(arr, l, r) {
+function quickSortLomuto(arr, l, r) {
     let p, i, x;
     p = l - 1;
     x = arr[r];
@@ -21,7 +21,7 @@ function partition(arr, l, r) {
 function quickSort(arr, l, r) {
     let p;
     if (l < r) {
-        p = partition(arr, l, r);
+        p = quickSortLomuto(arr, l, r);
         quickSort(arr, l, p);
         quickSort(arr, p + 1, r);
     }

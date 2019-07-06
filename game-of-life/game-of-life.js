@@ -1,6 +1,6 @@
 /** Rules
  * 
- * alive and 2 siblings or less => death of loliness
+ * alive and 2 siblings or less => death of loneliness
  * alive and 3 siblings or more => death of over population
  * alive and exactly 3 siblings => new born
  * everything else => retain current state
