@@ -39,9 +39,9 @@ Few implementations could be found here:
 
 ## Shore's algorithm
 
-Bruteforce implementation of [Shore's algorithm](https://en.wikipedia.org/wiki/Shor%27s_algorithm). I obvously don't understand quantum computers ... nor have one.
+Bruteforce implementation of [Shore's algorithm](https://en.wikipedia.org/wiki/Shor%27s_algorithm). I obvously don't understand quantum computers ... nor I have one.
 
-It was amusing to implement this bruteforce. The math behind it is very elegant.
+It was amusing to implement this in bruteforce approach. The math behind it is very elegant.
 
 ## Sort
 
