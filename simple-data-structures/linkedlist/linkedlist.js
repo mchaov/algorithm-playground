@@ -76,6 +76,10 @@ class LinkedList {
     }
 
     addLast(element) {
+        if (!this.first) {
+            return this.addFirst(element);
+        }
+
         let newElement = this._ensureLLElement(element);
         if (this.last) {
             let oldLast = this.last;
@@ -130,3 +134,23 @@ console.log(
     "\n## LAST:", ll.last,
     "\n## LAST NEXT:", ll.last.next,
 );
+
+ll.clear();
+
+ll.addLast(33);
+ll.addLast(22);
+ll.addLast(11);
+ll.addFirst(1111);
+ll.addFirst(2222);
+
+console.log(
+    "\n## FIRST:", ll.first,
+    "\n## SECOND:", ll.first.next,
+    "\n## THIRD:", ll.first.next.next,
+    "\n## FOURTH:", ll.first.next.next.next,
+    "\n## FIFTH:", ll.first.next.next.next.next,
+    "\n## LAST:", ll.last,
+    "\n## LAST NEXT:", ll.last.next,
+    "\n## COUNT:", ll.count
+);
+
