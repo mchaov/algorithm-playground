@@ -1,3 +1,5 @@
+// Private fields need nodejs 12.x
+
 class Stack {
     #data;
     #maxSize; // 0 = auto sizing
