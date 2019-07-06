@@ -9,23 +9,19 @@ class Stack {
         this.clear();
     }
 
+    clear() { this.#data = new Array(0); }
+
     get count() { return this.#data.length; }
+    
+    contains(element) { return this.#data.indexOf(element) > -1; }
+    
+    peek() { return this.#data.slice(); }
 
     push(element) {
         if (this.#maxSize !== 0 && this.count > this.#maxSize) {
             throw new Error("stack overflow :)");
         }
         this.#data.push(element);
-    }
-
-    clear() { this.#data = new Array(0); }
-
-    contains(element) {
-        return this.#data.indexOf(element) > -1;
-    }
-
-    peek() {
-        return this.#data.slice();
     }
 
     pop() {
