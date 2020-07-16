@@ -1,17 +1,18 @@
 # algorithm-playground
 
 - [algorithm-playground](#algorithm-playground)
-  - [Game of life](#Game-of-life)
-  - [Prime numbers](#Prime-numbers)
-  - [Shore's algorithm](#Shores-algorithm)
-  - [Sort](#Sort)
-  - [Simple data structures](#Simple-data-structures)
-    - [Stack](#Stack)
-    - [Queue](#Queue)
-    - [Linked list](#Linked-list)
-  - [Helpers](#Helpers)
-  - [Suggestions](#Suggestions)
-  - [Improvements](#Improvements)
+  - [Game of life](#game-of-life)
+  - [Prime numbers](#prime-numbers)
+  - [Shore's algorithm](#shores-algorithm)
+  - [Sort](#sort)
+  - [Simple data structures](#simple-data-structures)
+    - [Stack](#stack)
+    - [Queue](#queue)
+    - [Priority Queue](#priority-queue)
+    - [Linked list](#linked-list)
+  - [Helpers](#helpers)
+  - [Suggestions](#suggestions)
+  - [Improvements](#improvements)
 
 Just some algorithms implemented in JS. Mastering a language requires time and effort. If you don't practice it - you become falsely confident in your skills.
 
@@ -68,6 +69,10 @@ Using arrays internally. Quite simple and easy to do with JS.
 Implemented with the new private field syntax available from Nodejs 12.x.
 
 Using arrays internally. Quite simple and easy to do with JS.
+
+### Priority Queue
+
+Has the ability to keep the elements sorted based on default or provided predicate.
 
 ### Linked list
 
